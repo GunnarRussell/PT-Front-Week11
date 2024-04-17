@@ -1,0 +1,70 @@
+<!--
+    Using any of the tools you've worked with so far, create a game of Tic-Tac-Toe.
+
+    1. Create a Tic-Tac-Toe game grid using your HTML element of choice.
+    2. When a cell in the grid is clicked, an X or O should appear in that spot depending on whose turn it is.
+    3. A heading should say whether it is X's or O's turn and change with each move made.
+    4. A button should be available to clear the grid and restart the game.
+    5. When a player has won, or the board is full and the game results in a draw, a Bootstrap alert or similar Bootstrap component should appear across the screen announcing the winner.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Alert -->
+        <div class="alert alert-secondary">
+            player turn text goes here
+        </div>
+
+        <!-- grid -->
+        <div class="game-container">
+            <div class="row no-gutters">
+                <div class="col-sm-3 top left square" id="s1">
+                    0
+                </div>
+                <div class="col-sm-3 top center square" id="s2">
+                    1
+                </div>
+                <div class="col-sm-3 top right square" id="s3">
+                    2
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-sm-3 middle left square" id="s4">
+                    3
+                </div>
+                <div class="col-sm-3 middle center square" id="s5">
+                    4
+                </div>
+                <div class="col-sm-3 middle right square" id="s6">
+                    5
+                </div>
+            </div>
+            <div class="row no-gutters">
+                <div class="col-sm-3 bottom left square" id="s7">
+                    6
+                </div>
+                <div class="col-sm-3 bottom center square" id="s8">
+                    7
+                </div>
+                <div class="col-sm-3 bottom right square" id="s9">
+                    8
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="node_modules/jquery/dist/jquery.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
