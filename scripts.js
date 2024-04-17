@@ -26,6 +26,9 @@ class Game //keeps track of game rules
         this.turn = player1;
         this.winner = "";
         this.tie = false;
+
+        this.turnCount = 1;
+
         alert.text("Welcome to Tic-Tac-Toe! It is now " + this.turn + "'s turn.")
     }
 
@@ -39,8 +42,27 @@ class Game //keeps track of game rules
         {
             this.turn = this.player1;
         }
+        this.turnCount++;
         console.log("It is now " + this.turn + "'s turn.");
         alert.text("It is now " + this.turn + "'s turn.");
+    }
+
+    checkWinner() //checks every line to see if a player has claimed 3 boxes in a line
+    {
+        //check all columns, rows, and diagonals
+        allArrays.forEach(function(line)
+        {
+            game.checkLine(line);
+        });
+
+        //check for tie:
+        //if it's been 9 turns and there's no winner
+        if(this.turnCount >= 9 && this.winner == "")
+        {
+            console.log("It's a tie!");
+            alert.text("It's a tie!");
+            this.tie = true;
+        }
     }
 
     checkLine(lineArray)
@@ -65,31 +87,6 @@ class Game //keeps track of game rules
             {
                 text.style.color = "rgb(119,221,119)";
             });
-        }
-    }
-
-    checkWinner() //checks every line to see if a player has claimed 3 boxes in a line
-    {
-        //check all columns, rows, and diagonals
-        allArrays.forEach(function(line)
-        {
-            game.checkLine(line);
-        });
-
-        //check for tie
-        //add every symbol in every box to a string
-        let allBoxesString = "";
-        allBoxes.forEach(function(box)
-        {
-            allBoxesString += box.textContent;
-        });
-
-        //if string is 9 characters long (all boxes are filled) and there's still no winner, it's a tie
-        if(allBoxesString.length == 9 && this.winner == "")
-        {
-            console.log("It's a tie!");
-            alert.text("It's a tie!");
-            this.tie = true;
         }
     }
 }
@@ -143,6 +140,7 @@ resetBtn.on("click", function() // button resets the game
     game.turn = game.player1;
     game.winner = "";
     game.tie = false;
+    game.turnCount = 1;
     alert.text("Welcome to Tic-Tac-Toe! It is now " + game.turn + "'s turn.");
 
 });
