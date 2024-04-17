@@ -3,6 +3,12 @@ body
     background-color: rgb(216, 78, 78);
 }
 
+.alert
+{
+    text-align: center;
+    font-size: 25px;
+}
+
 .game-container
 {
     align-self: center;
@@ -18,19 +24,20 @@ body
     justify-content: center;
     align-items: center;
 
-    font-size: 125px;
-    color: white;
+    font-family: MochiyPopOne;
+    font-size: 100px;
+    color: rgba(255, 255, 255);
+}
+
+.square:hover
+{
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .top
 {
     border-bottom: 6px solid white;
 }
-
-/* .middle
-{
-
-} */
 
 .bottom
 {
@@ -42,12 +49,13 @@ body
     border-right: 6px solid white;
 }
 
-/* .center
-{
-
-} */
-
 .right
 {
     border-left: 6px solid white;
+}
+
+@font-face
+{
+    font-family: MochiyPopOne;
+    src: url(/MochiyPopOne.ttf);
 }

@@ -19,50 +19,54 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="container">
-        <!-- Alert -->
-        <div class="alert alert-secondary">
-            player turn text goes here
-        </div>
+    <br>
+    <div class="container d-grid mx-auto">
+        <div class="game-container mx-auto">
+            <!-- Alert -->
+            <div class="alert alert-light">
+                alert text goes here
+            </div>
+            <br>
 
         <!-- grid -->
-        <div class="game-container">
             <div class="row no-gutters">
-                <div class="col-sm-3 top left square" id="s1">
-                    0
+                <div class="col-sm-3 top left square diag1">
+                    
                 </div>
-                <div class="col-sm-3 top center square" id="s2">
-                    1
+                <div class="col-sm-3 top center square">
+                    
                 </div>
-                <div class="col-sm-3 top right square" id="s3">
-                    2
+                <div class="col-sm-3 top right square diag2">
+                    
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-sm-3 middle left square" id="s4">
-                    3
+                <div class="col-sm-3 middle left square">
+                    
                 </div>
-                <div class="col-sm-3 middle center square" id="s5">
-                    4
+                <div class="col-sm-3 middle center square diag1 diag2">
+                    
                 </div>
-                <div class="col-sm-3 middle right square" id="s6">
-                    5
+                <div class="col-sm-3 middle right square">
+                    
                 </div>
             </div>
             <div class="row no-gutters">
-                <div class="col-sm-3 bottom left square" id="s7">
-                    6
+                <div class="col-sm-3 bottom left square diag2">
+                    
                 </div>
-                <div class="col-sm-3 bottom center square" id="s8">
-                    7
+                <div class="col-sm-3 bottom center square">
+                    
                 </div>
-                <div class="col-sm-3 bottom right square" id="s9">
-                    8
+                <div class="col-sm-3 bottom right square diag1">
+                    
                 </div>
             </div>
+            <br>
+            <button type="button" class="btn btn-light btn-lg col-12">Reset Game</button>
         </div>
     </div>
+    
     
     <script src="node_modules/jquery/dist/jquery.js"></script>
     <script src="scripts.js"></script>
