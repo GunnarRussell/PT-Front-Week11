@@ -20,8 +20,8 @@ class Game //keeps track of game rules
 {
     constructor(player1, player2)
     {
-        this.player1 = player1;
-        this.player2 = player2;
+        this.player1 = player1; //player 1's symbol (probably X)
+        this.player2 = player2; //player 2's symbol (probably O)
 
         this.turn = player1;
         this.winner = "";
@@ -42,27 +42,9 @@ class Game //keeps track of game rules
         {
             this.turn = this.player1;
         }
-        this.turnCount++;
-        console.log("It is now " + this.turn + "'s turn.");
+        this.turnCount++; //increase turn count
+        // console.log("It is now " + this.turn + "'s turn.");
         alert.text("It is now " + this.turn + "'s turn.");
-    }
-
-    checkWinner() //checks every line to see if a player has claimed 3 boxes in a line
-    {
-        //check all columns, rows, and diagonals
-        allArrays.forEach(function(line)
-        {
-            game.checkLine(line);
-        });
-
-        //check for tie:
-        //if it's been 9 turns and there's no winner
-        if(this.turnCount >= 9 && this.winner == "")
-        {
-            console.log("It's a tie!");
-            alert.text("It's a tie!");
-            this.tie = true;
-        }
     }
 
     checkLine(lineArray)
@@ -89,6 +71,24 @@ class Game //keeps track of game rules
             });
         }
     }
+
+    checkWinner() //checks every line to see if a player has claimed 3 boxes in a line
+    {
+        //check all columns, rows, and diagonals
+        allArrays.forEach(function(line)
+        {
+            game.checkLine(line);
+        });
+
+        //check for tie:
+        //if it's been 9 turns and there's no winner
+        if(this.turnCount >= 9 && this.winner == "")
+        {
+            // console.log("It's a tie!");
+            alert.text("It's a tie!");
+            this.tie = true;
+        }
+    }
 }
 
 box.on("click", function() //if you click a box
@@ -96,17 +96,17 @@ box.on("click", function() //if you click a box
     //check if game is even still going on
     if(game.winner == "" && game.tie == false)
     {
-        //check if box already has either player's symbol
+        //check if the box already has either player's symbol
         if($(this).text() == game.player1 || $(this).text() == game.player2)
         {
             console.log("That box is already claimed!");
         }
         else
         {
-            //changes the box's text to whoever's turn it is
+            //changes the box's text to the symbol of whoever's turn it is
             $(this).text(game.turn);
 
-            //changes the color of the text depending on the player
+            //sets the color of the symbol depending on the player
             if(game.turn == game.player1)
             {
                 $(this).css("color", "rgb(250, 160, 160");
@@ -116,7 +116,7 @@ box.on("click", function() //if you click a box
                 $(this).css("color", "rgb(167, 199, 231)");
             }
 
-            //class method that checks all winning lines to see if there is a winner
+            //check all winning lines to see if there is a winner
             game.checkWinner();
 
             //if no winner, change turn
@@ -128,7 +128,7 @@ box.on("click", function() //if you click a box
     }    
 });
 
-resetBtn.on("click", function() // button resets the game
+resetBtn.on("click", function() // button that resets the game
 {
     //clear all squares
     allBoxes.forEach(function(box)
